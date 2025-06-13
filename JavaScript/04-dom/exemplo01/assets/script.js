@@ -24,14 +24,14 @@ const studentList = document.querySelector(".students-list");
 
 function renderStudentsList () {
     studentList.innerHTML = "";
-    students.forEach((student, index, array) => {
+    students.forEach((student, index) => {
         console.log(student.name, student.grade);
         const cardStudent = document.createElement("div");
         cardStudent.classList.add("student-card");
         cardStudent.innerHTML = `
                 <span class="student-name">${student.name}</span>
                 <span class="student-grade">${student.grade}</span>
-                <button class="btn-delete" idStudent="4" title="Excluir aluno">
+                <button class="btn-delete" idStudent="${index}" title="Excluir aluno">
                     🗑️ Excluir
                 </button>
 `;
@@ -52,3 +52,15 @@ buttonInsert.addEventListener("click", () => {
     renderStudentsList();
 });
 
+studentList.addEventListener("click", (event) => {
+
+    if(event.target.tagName === "BUTTON") {
+        console.log("Oi, estou clicando na lista de estudantes");
+        console.log(event.target.tagName);
+        console.log(event.target.getAttribute("idStudent"));
+        students.splice(event.target.getAttribute("idStudent"),1);
+        renderStudentsList();
+        console.log(students);
+    }
+
+});
