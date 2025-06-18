@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/style.css">
+    <script type="application/javascript" src="assets/script.js" async></script>
+    <title>Gerenciar Lista de Tarefas</title>
+</head>
+<body>
+    <header>
+        <h1>Gerenciar Lista de Tarefas</h1>
+    </header>
+    <section>
+        <form>
+            <label for="task">Digite uma tarefa:</label>
+            <input type="text" id="task" placeholder="Digite uma tarefa">
+            <button type="button" id="add">Adicionar</button>
+            <button type="button" id="remove">Remover Última</button>
+            <button type="button" id="mark-completed">Marcar Concluída</button>
+        </form>
+    </section>
+    <section>
+        <p>Quantidade de tarefas na lista: <span id="count">3</span></p>
+    </section>
+    <section>
+        <h2>Lista de Tarefas</h2>
+        <ul id="task-list">
+            <li>Estudar para Prova</li>
+            <li>✅Fazer Compras</li>
+            <li>Limpar a Casa</li>
+        </ul>
+    </section>
+</body>
+</html>

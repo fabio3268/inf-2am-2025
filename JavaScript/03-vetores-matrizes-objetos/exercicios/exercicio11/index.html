@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>..:: Registro de Usuário ::..</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Usuários</h1>
+    </header>
+    <main>
+        <section>
+            <form id="user-form">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="button" id="add-user">Incluir</button>
+            </form>
+            <button type="button" id="sort-users">Ordenar</button>
+        </section>
+        <section>
+            <h2>User List</h2>
+            <ul id="user-list">
+                <!--<li userId="1">
+                    Name: John Doe, Email: john.doe@example.com
+                    <button class="delete">Excluir</button>
+                    <button class="edit">Editar</button>
+                </li>
+                <li userId="2">
+                    Name: Jane Smith, Email: jane.smith@example.com
+                    <button class="delete">Excluir</button>
+                    <button class="edit">Editar</button>
+                </li>-->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 User Registration</p>
+    </footer>
+</body>
+</html>
