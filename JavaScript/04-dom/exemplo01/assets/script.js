@@ -24,8 +24,18 @@ const studentList = document.querySelector(".students-list");
 
 function renderStudentsList () {
     studentList.innerHTML = "";
+
+    console.log(students.length);
+
+    if(students.length === 0) {
+        studentList.innerHTML = "<div class=\"empty-state\">\n" +
+            "                Nenhum estudante cadastrado...\n" +
+            "            </div>";
+        return;
+    }
+
     students.forEach((student, index) => {
-        console.log(student.name, student.grade);
+        //console.log(student.name, student.grade);
         const cardStudent = document.createElement("div");
         cardStudent.classList.add("student-card");
         cardStudent.innerHTML = `
@@ -40,27 +50,39 @@ function renderStudentsList () {
     });
 }
 
+
+const errorMessage = document.querySelector(".error-message");
+
 buttonInsert.addEventListener("click", () => {
     //console.log(inputName.value, inputGrade.value);
-    students.push(
-        {
-            name: inputName.value,
-            grade: inputGrade.value
-        }
-    );
-    //console.table(students);
-    renderStudentsList();
+    if(inputName.value === "" || inputGrade.value === "") {
+        errorMessage.textContent = "Informe nome e nota do aluno!";
+        //return;
+    } else {
+        students.push(
+            {
+                name: inputName.value,
+                grade: inputGrade.value
+            }
+        );
+        //console.table(students);
+        renderStudentsList();
+        inputName.value = "";
+        inputGrade.value = "";
+        errorMessage.textContent = "";
+    }
+
 });
 
 studentList.addEventListener("click", (event) => {
-
+    console.log(event.target.tagName);
     if(event.target.tagName === "BUTTON") {
-        console.log("Oi, estou clicando na lista de estudantes");
-        console.log(event.target.tagName);
-        console.log(event.target.getAttribute("idStudent"));
+        //console.log("Oi, estou clicando na lista de estudantes");
+        //console.log(event.target.tagName);
+        //console.log(event.target.getAttribute("idStudent"));
         students.splice(event.target.getAttribute("idStudent"),1);
         renderStudentsList();
-        console.log(students);
+        //console.log(students);
     }
 
 });
