@@ -20,7 +20,11 @@ let students = [
         grade: 8
     }
 ];
+
+console.log(JSON.stringify(students));
+localStorage.setItem("studentsListMorning", JSON.stringify(students));
+
 //const names = ["João", "Fábio", "Godofredo", "Maria"];
 // JSON
-console.log(JSON.stringify(students, null, 2));
-localStorage.setItem("students", JSON.stringify(students, null, 2));
+//console.log(JSON.stringify(students, null, 2));
+//localStorage.setItem("students", JSON.stringify(students, null, 2));
