@@ -1,22 +1,5 @@
 // Lista de objetos para armazenar os alunos
-let students = [
-    {
-        name: "Fábio",
-        grade: 10
-    },
-    {
-        name: "Godofredo",
-        grade: 7
-    },
-    {
-        name: "Maria",
-        grade: 8
-    }
-];
-
-const inputName = document.querySelector("#studentName");
-const inputGrade = document.querySelector("#studentGrade");
-const buttonInsert = document.querySelector("#insert");
+let students;
 
 const studentList = document.querySelector(".students-list");
 
@@ -43,11 +26,18 @@ function renderStudentsList () {
                     🗑️ Excluir
                 </button>
 `;
-//console.log(cardStudent);
         studentList.appendChild(cardStudent);
     });
 }
 
+students = JSON.parse(localStorage.getItem("studentsListMorning")) || [];
+if(students){
+    renderStudentsList();
+}
+
+const inputName = document.querySelector("#studentName");
+const inputGrade = document.querySelector("#studentGrade");
+const buttonInsert = document.querySelector("#insert");
 
 const errorMessage = document.querySelector(".error-message");
 
@@ -64,6 +54,9 @@ buttonInsert.addEventListener("click", () => {
             }
         );
         //console.table(students);
+
+        localStorage.setItem("studentsListMorning", JSON.stringify(students));
+
         renderStudentsList();
         inputName.value = "";
         inputGrade.value = "";
@@ -79,6 +72,7 @@ studentList.addEventListener("click", (event) => {
         //console.log(event.target.tagName);
         //console.log(event.target.getAttribute("idStudent"));
         students.splice(event.target.getAttribute("idStudent"),1);
+        localStorage.setItem("studentsListMorning", JSON.stringify(students));
         renderStudentsList();
         //console.log(students);
     }
